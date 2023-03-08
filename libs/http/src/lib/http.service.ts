@@ -5,7 +5,6 @@ import { AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios';
 import { LoggerService } from '@nestjs/common';
 import { Options as RetryOptions } from 'p-retry';
 import * as CircuitBreaker from 'opossum';
-import { LogsService } from '@nx-tf-k8s/logs';
 
 @Injectable()
 export class HttpService {

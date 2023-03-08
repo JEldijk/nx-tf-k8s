@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@jeldijk/nx-tf-k8s-http": ["libs/http/src/index.ts"],
-      "@nx-tf-k8s/logs": ["libs/logs/src/index.ts"]
+      "@jeldijk/nx-tf-k8s-logging": ["libs/logging/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
