@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "logging": {
+      "type": "library",
+      "root": "libs/logging",
+      "entryFile": "index",
+      "sourceRoot": "libs/logging/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/logging/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
