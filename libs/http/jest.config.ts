@@ -1,5 +1,6 @@
-/* eslint-disable */
-export default {
+import type { Config } from 'jest';
+
+const config: Config = {
   displayName: 'http',
   preset: '../../jest.preset.js',
   globals: {
@@ -14,3 +15,5 @@ export default {
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/libs/http',
 };
+
+export default config;

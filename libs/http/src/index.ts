@@ -1,2 +1,3 @@
-export * from './lib/http.service';
-export * from './lib/http.module';
+export * from './lib/http-client-builder.service';
+export * from './lib/http-client-builder.module';
+export * from './lib/promise-retry/pRetry';

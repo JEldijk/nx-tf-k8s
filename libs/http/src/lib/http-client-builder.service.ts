@@ -1,12 +1,15 @@
-import * as CircuitBreaker from 'opossum';
+import CircuitBreaker from 'opossum';
 import { Injectable, Logger } from '@nestjs/common';
-import retry, { AbortError, Options as RetryOptions } from 'p-retry';
 import axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios';
 
 import { LoggingService } from '@jeldijk/nx-tf-k8s-logging';
 
+import { AbortError } from './promise-retry/AbortError';
+import { Options } from './promise-retry/interface/Options';
+import pRetry from './promise-retry/pRetry';
+
 @Injectable()
-export class HttpService {
+export class HttpClientBuilderService {
   constructor(
     private readonly logger: Logger,
     private readonly logsService: LoggingService
@@ -70,7 +73,7 @@ export class HttpService {
   };
 
   public retryAxiosBreaker = async <T, D>(
-    retryOptions: RetryOptions,
+    retryOptions: Options,
     config: AxiosRequestConfig<D>,
     breaker: CircuitBreaker<
       [config: AxiosRequestConfig<D>, retryStatusCodes: number[]],
@@ -78,7 +81,7 @@ export class HttpService {
     >,
     retryStatusCodes: number[]
   ): Promise<AxiosResponse<T, D>> => {
-    const response = await retry(
+    const response = await pRetry(
       async () => await breaker.fire(config, retryStatusCodes),
       retryOptions
     ).catch((error) => {
