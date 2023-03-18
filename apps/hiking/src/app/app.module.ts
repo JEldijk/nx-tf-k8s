@@ -1,12 +1,13 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { HttpClientBuilderModule } from '@jeldijk/nx-tf-k8s-http';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from '../database/database.module';
 
 @Module({
-  imports: [HttpClientBuilderModule],
+  imports: [HttpClientBuilderModule, DatabaseModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, Logger],
 })
 export class AppModule {}

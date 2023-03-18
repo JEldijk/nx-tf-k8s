@@ -97,6 +97,13 @@
       "options": {
         "schema": "apps/hiking/prisma/schema.prisma"
       }
+    },
+    "prisma-seed": {
+      "executor": "@nx-tools/nx-prisma:seed",
+      "options": {
+        "script": "apps/hiking/prisma/seed.ts",
+        "tsConfig": "tools/tsconfig.tools.json"
+      }
     }
   },
   "tags": []
