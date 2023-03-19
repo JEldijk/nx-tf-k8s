@@ -4,9 +4,7 @@ import axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios';
 
 import { LoggingService } from '@jeldijk/nx-tf-k8s-logging';
 
-import { AbortError } from './promise-retry/AbortError';
-import { Options } from './promise-retry/interface/Options';
-import pRetry from './promise-retry/pRetry';
+import pRetry, { AbortError, Options } from '@nx-tf-k8s/p-retry';
 
 @Injectable()
 export class HttpClientBuilderService {

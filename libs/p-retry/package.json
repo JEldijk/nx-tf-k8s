@@ -1,0 +1,8 @@
+{
+  "name": "@nx-tf-k8s/p-retry",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "p-retry": "^5.1.2"
+  }
+}
