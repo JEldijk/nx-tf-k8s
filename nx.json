@@ -10,7 +10,10 @@
       }
     }
   },
-  "cli": { "defaultCollection": "@nrwl/nest", "packageManager": "yarn" },
+  "cli": {
+    "defaultCollection": "@nrwl/nest",
+    "packageManager": "npm"
+  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
@@ -21,6 +24,9 @@
     },
     "lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+    },
+    "e2e": {
+      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
@@ -33,5 +39,18 @@
       "!{projectRoot}/.eslintrc.json"
     ],
     "sharedGlobals": []
+  },
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
   }
 }
