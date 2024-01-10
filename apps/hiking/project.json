@@ -104,6 +104,10 @@
         "script": "apps/hiking/prisma/seed.ts",
         "tsConfig": "tools/tsconfig.tools.json"
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f apps/hiking/Dockerfile . -t hiking"
     }
   },
   "tags": []
